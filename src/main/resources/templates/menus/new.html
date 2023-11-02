@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <title>Новый пользователь</title>
+</head>
+<body>
+<header th:insert="Blocks/header :: header"></header>
+<div class="container mt-5 mb-5">
+    <h3>Добавление пункта меню</h3>
+<form th:action="${'/menus/new'}" method="post" th:object="${menu}">
+
+    <input type="text" name="name" placeholder="Введите название блюда" class="form-control"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    <br>
+    <input type="text" name="description" placeholder="Введите описание блюда" class="form-control"/>
+    <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Name Error</div>
+    <br>
+    <input type="text" name="price" placeholder="Введите цену блюда" class="form-control"/>
+    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Name Error</div>
+    <br>
+    <input type="text" name="category" placeholder="Введите категорию блюда" class="form-control"/>
+    <div style="color:red" th:if="${#fields.hasErrors('category')}" th:errors="*{category}">Name Error</div>
+    <br>
+
+    <button type="submit" class="btn btn-success">Добавить пункт меню</button>
+</form>
+</div>
+<footer th:insert="Blocks/footer :: footer"></footer>>
+</body>
+</html>
